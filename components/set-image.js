@@ -1,18 +1,24 @@
 
+// Function called when an arrow is chosen
 function changeImage(direction) {
 
+    // Check to make sure the direction chosen is valid
     if(current[direction] != null) {
-        // Fade out image.
-        console.log(direction);
+
+        // Fade image to black
+        document.querySelector('#image-current').emit('startFade');
 
         // Wait for fade to complete.
         setTimeout(function () {
-            // Set image.
+            // Set the new image
             document.querySelector('#image-current').setAttribute('material', 'src', current[direction].img);
 
+            // Maintain a pointer to the previous location - not currently used
             var previous = current;
+            // Set current to the new location 
             current = current[direction];
 
+            // Make arrows visible or invisible based on the directions possible from the new location
             if(current.right == null)document.querySelector('#goRightLink').setAttribute("visible", false);
             else document.getElementById('goRightLink').setAttribute("visible", true);
             if(current.left == null) document.getElementById('goLeftLink').setAttribute("visible", false);
@@ -22,11 +28,8 @@ function changeImage(direction) {
             if(current.backward == null) document.getElementById('goBackwardLink').setAttribute("visible", false);
             else document.getElementById('goBackwardLink').setAttribute("visible", true);
 
-            // Once image has been swapped, fade back in
+            // Now that the fade out has completed and the new image has been insterted, fade back in
             document.querySelector('#image-current').emit('endFade');
         }, 800);
-
-        // Fade image out
-        document.querySelector('#image-current').emit('startFade');
     }
 }

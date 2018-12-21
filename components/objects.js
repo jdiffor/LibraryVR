@@ -1,3 +1,4 @@
+// Create each image object with its respective img source
 var img_4884 = {img:"/assets/rotated/PHOTO_4884.jpg"};
 var img_4885 = {img:"/assets/photos/PHOTO_4885.jpg"};
 var img_4886 = {img:"/assets/photos/PHOTO_4886.jpg"};
@@ -61,8 +62,7 @@ var img_4413 = {img:"/assets/rotated/PHOTO_4413.jpg"};
 var img_4414 = {img:"/assets/rotated/PHOTO_4414.jpg"};
 var img_4415 = {img:"/assets/rotated/PHOTO_4415.jpg"};
 
-
-
+// Link each image object to its right, left, forward, and backward destination
 img_4884.right = img_4885;
 img_4884.left = null;
 img_4884.backward = null;
@@ -368,5 +368,6 @@ img_4415.right = null;
 img_4415.backward = img_4884;
 img_4415.forward = img_4414;
 
+// Set an image to be the starting image
 var start = img_4889;
 var current = start;
